@@ -12,6 +12,7 @@ services:
       - APACHE_DOCUMENT_ROOT=/var/www/html
     depends_on:
       - mongodb
+    restart: always
 
   mongodb:
     image: mongo
@@ -23,3 +24,4 @@ services:
     environment:
       - MONGO_INITDB_ROOT_USERNAME=root
       - MONGO_INITDB_ROOT_PASSWORD=secret
+    restart: always
