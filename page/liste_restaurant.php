@@ -18,13 +18,16 @@
 
 <body>
     <?php
-    $json = file_get_contents('restaurants.json');
+    $json = file_get_contents("./restaurants.json");
     $data = json_decode($json, true);
+    var_dump($data.[0].["name"].[0]);
     include('menu.php');
     ?>
     <br><br><br>
     <?php
-    echo "Restaurants : ".$data. "<br>"; ?>
+
+    echo "Restaurants : ".$data. "<br>"; 
+    ?>
 </body>
 
 </html>
