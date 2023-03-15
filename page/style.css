@@ -1,9 +1,5 @@
 @charset "UTF-8";
 
-body {
-    position: absolute;
-}
-
 .navigation {
     height: 70px;
     background: #262626;

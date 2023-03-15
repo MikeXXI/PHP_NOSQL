@@ -15,8 +15,3 @@
   <title>Tp NO SQL</title>
 
 </head>
-
-<body>
-<?php
-
-?>

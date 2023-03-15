@@ -1,5 +1,4 @@
-
-<section class="navigation">
+<div class="navigation">
     <div class="nav-container">
         <div class="brand">
             <a href="index.php">Logo</a>
@@ -22,4 +21,4 @@
             </ul>
         </nav>
     </div>
-</section>
+</div>
