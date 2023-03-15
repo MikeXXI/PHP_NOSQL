@@ -1,7 +1,8 @@
 <?php include('header.php'); ?>
+<?php include('menu.php'); ?>
+
 
 <body>
-    <?php include('menu.php'); ?>
     <br />
     <section class="gradient-custom" style="width: 100%;">
         <div class="container py-5">
