@@ -1,7 +1,10 @@
 @charset "UTF-8";
 
+/* Navigation */
 .navigation {
     height: 70px;
+    z-index: 2;
+    opacity: .9;
     background: #262626;
     position: fixed;
     width: 100%;
@@ -80,55 +83,6 @@ nav ul li ul li a {
     box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Mobile navigation */
-.nav-mobile {
-    display: none;
-    position: absolute;
-    top: 0;
-    right: 0;
-    background: #262626;
-    height: 70px;
-    width: 70px;
-}
-
-@media only screen and (max-width: 798px) {
-    .nav-mobile {
-        display: block;
-    }
-
-    nav {
-        width: 100%;
-        padding: 70px 0 15px;
-    }
-
-    nav ul {
-        display: none;
-    }
-
-    nav ul li {
-        float: none;
-    }
-
-    nav ul li a {
-        padding: 15px;
-        line-height: 20px;
-    }
-
-    nav ul li ul li a {
-        padding-left: 30px;
-    }
-
-    .nav-dropdown {
-        position: static;
-    }
-}
-
-@media screen and (min-width: 799px) {
-    .nav-list {
-        display: block !important;
-    }
-}
-
 #nav-toggle {
     position: absolute;
     left: 18px;
@@ -180,4 +134,112 @@ article {
     max-width: 1000px;
     margin: 0 auto;
     padding: 10px;
+}
+
+/* Mobile navigation */
+.nav-mobile {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #262626;
+    height: 70px;
+    width: 70px;
+}
+
+/* Liste restaurants */
+.restaurant_container {
+    width: 100%;
+    justify-content: center;
+    background: whitesmoke;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.restaurant_cards {
+    position: relative;
+    width: 300px;
+    height: 350px;
+    background: white;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.restaurant_cards_top {
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.restaurant_cards .restaurant_id {
+    position: absolute;
+    top: 0;
+    left: 1px;
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.restaurant_cards p {
+    position: absolute;
+    font-size: 18px;
+    top: 50%;
+    bottom: 50%;
+    margin-left: 5px;
+    text-decoration: underline;
+}
+
+.restaurant_cards button {
+    position: absolute;
+    background: whitesmoke;
+    border: solid 1px gainsboro;
+    border-radius: 8px;
+    padding: 6px;
+    bottom: 0;
+    margin: 10px;
+    right: 50px;
+    left: 50px;
+}
+
+/* Responsive */
+@media only screen and (max-width: 798px) {
+    .nav-mobile {
+        display: block;
+    }
+
+    nav {
+        width: 100%;
+        padding: 70px 0 15px;
+    }
+
+    nav ul {
+        display: none;
+    }
+
+    nav ul li {
+        float: none;
+    }
+
+    nav ul li a {
+        padding: 15px;
+        line-height: 20px;
+    }
+
+    nav ul li ul li a {
+        padding-left: 30px;
+    }
+
+    .nav-dropdown {
+        position: static;
+    }
+}
+
+@media screen and (min-width: 799px) {
+    .nav-list {
+        display: block !important;
+    }
 }
