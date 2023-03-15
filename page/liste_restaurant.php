@@ -20,7 +20,7 @@
                     <i><?php echo $restaurant[$i]->cuisine; ?> </i>
                 </div>
                 <p><?php echo $restaurant[$i]->address->building . " " . $restaurant[$i]->address->street . ", " . $restaurant[$i]->address->zipcode . " - " . $restaurant[$i]->borough; ?></p>
-                <button>Voir plus</button>
+                <button>Favoris ♥</button>
             </div>
         <?php endfor ?>
     </div>
