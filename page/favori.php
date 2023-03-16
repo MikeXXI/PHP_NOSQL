@@ -29,6 +29,13 @@
     
     ?>
     <div class="restaurant_container">
+    <select id=tri style="position:left; max-width: 150px; max-height: 50px;">
+            <option value="nameasc">Nom croissant</option>
+            <option value="namedesc">Nom décroissant</option>
+            <option value="restaurant_id">ID</option>
+            <option value="cuisine">Cuisine</option>
+            <option value="zipcode">Code Postal</option>
+        </select>
         <?php for ($i = 0; $i < 2; $i++){
             echo'
             <div class="restaurant_cards">
