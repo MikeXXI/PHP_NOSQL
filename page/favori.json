@@ -1,0 +1,78 @@
+[
+    {
+        "user_id": "1",
+        "favori": [
+            {
+                "restaurant_id": "40356483",
+                "name": "Wilken'S Fine Food",
+                "address": {
+                    "building": "7114",
+                    "street": "Avenue U",
+                    "zipcode": "11234"
+                },
+                "borough": "Brooklyn",
+                "cuisine": "Delicatessen"
+            },
+            {
+                "restaurant_id": "40356731",
+                "name": "Taste The Tropics Ice Cream",
+                "address": {
+                    "building": "1839",
+                    "street": "Nostrand Avenue",
+                    "zipcode": "11226"
+                },
+                "borough": "Brooklyn",
+                "cuisine": "Ice Cream, Gelato, Yogurt, Ices"
+            }
+        ]
+    },
+    {
+        "user_id": "2",
+        "favori": [
+            {
+                "address": {
+                    "building": "1007",
+                    "street": "Morris Park Ave",
+                    "zipcode": "10462"
+                },
+                "borough": "Bronx",
+                "cuisine": "Bakery",
+                "name": "Morris Park Bake Shop",
+                "restaurant_id": "30075445"
+            },
+            {
+                "address": {
+                    "building": "351",
+                    "street": "West   57 Street",
+                    "zipcode": "10019"
+                },
+                "borough": "Manhattan",
+                "cuisine": "Irish",
+                "name": "Dj Reynolds Pub And Restaurant",
+                "restaurant_id": "30191841"
+            },
+            {
+                "address": {
+                    "building": "7114",
+                    "street": "Avenue U",
+                    "zipcode": "11234"
+                },
+                "borough": "Brooklyn",
+                "cuisine": "Delicatessen",
+                "name": "Wilken'S Fine Food",
+                "restaurant_id": "40356483"
+            },
+            {
+                "address": {
+                    "building": "1839",
+                    "street": "Nostrand Avenue",
+                    "zipcode": "11226"
+                },
+                "borough": "Brooklyn",
+                "cuisine": "Ice Cream, Gelato, Yogurt, Ices",
+                "name": "Taste The Tropics Ice Cream",
+                "restaurant_id": "40356731"
+            }
+        ]
+    }
+]

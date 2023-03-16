@@ -6,44 +6,7 @@
             "zipcode": "10462"
         },
         "borough": "Bronx",
-        "cuisine": "Bakery",
-        "grades": [
-            {
-                "date": {
-                    "$date": 1393804800000
-                },
-                "grade": "A",
-                "score": 2
-            },
-            {
-                "date": {
-                    "$date": 1378857600000
-                },
-                "grade": "A",
-                "score": 6
-            },
-            {
-                "date": {
-                    "$date": 1358985600000
-                },
-                "grade": "A",
-                "score": 10
-            },
-            {
-                "date": {
-                    "$date": 1322006400000
-                },
-                "grade": "A",
-                "score": 9
-            },
-            {
-                "date": {
-                    "$date": 1299715200000
-                },
-                "grade": "B",
-                "score": 14
-            }
-        ],
+        "cuisine": "Bakery",        
         "name": "Morris Park Bake Shop",
         "restaurant_id": "30075445"
     },
@@ -54,37 +17,7 @@
             "zipcode": "11225"
         },
         "borough": "Brooklyn",
-        "cuisine": "Hamburgers",
-        "grades": [
-            {
-                "date": {
-                    "$date": 1419897600000
-                },
-                "grade": "A",
-                "score": 8
-            },
-            {
-                "date": {
-                    "$date": 1404172800000
-                },
-                "grade": "B",
-                "score": 23
-            },
-            {
-                "date": {
-                    "$date": 1367280000000
-                },
-                "grade": "A",
-                "score": 12
-            },
-            {
-                "date": {
-                    "$date": 1336435200000
-                },
-                "grade": "A",
-                "score": 12
-            }
-        ],
+        "cuisine": "Hamburgers",        
         "name": "Wendy'S",
         "restaurant_id": "30112340"
     },
@@ -95,37 +28,7 @@
             "zipcode": "10019"
         },
         "borough": "Manhattan",
-        "cuisine": "Irish",
-        "grades": [
-            {
-                "date": {
-                    "$date": 1409961600000
-                },
-                "grade": "A",
-                "score": 2
-            },
-            {
-                "date": {
-                    "$date": 1374451200000
-                },
-                "grade": "A",
-                "score": 11
-            },
-            {
-                "date": {
-                    "$date": 1343692800000
-                },
-                "grade": "A",
-                "score": 12
-            },
-            {
-                "date": {
-                    "$date": 1325116800000
-                },
-                "grade": "A",
-                "score": 12
-            }
-        ],
+        "cuisine": "Irish",        
         "name": "Dj Reynolds Pub And Restaurant",
         "restaurant_id": "30191841"
     },
@@ -137,36 +40,6 @@
         },
         "borough": "Brooklyn",
         "cuisine": "American ",
-        "grades": [
-            {
-                "date": {
-                    "$date": 1402358400000
-                },
-                "grade": "A",
-                "score": 5
-            },
-            {
-                "date": {
-                    "$date": 1370390400000
-                },
-                "grade": "A",
-                "score": 7
-            },
-            {
-                "date": {
-                    "$date": 1334275200000
-                },
-                "grade": "A",
-                "score": 12
-            },
-            {
-                "date": {
-                    "$date": 1318377600000
-                },
-                "grade": "A",
-                "score": 12
-            }
-        ],
         "name": "Riviera Caterer",
         "restaurant_id": "40356018"
     },
@@ -178,36 +51,6 @@
         },
         "borough": "Queens",
         "cuisine": "Jewish/Kosher",
-        "grades": [
-            {
-                "date": {
-                    "$date": 1416787200000
-                },
-                "grade": "Z",
-                "score": 20
-            },
-            {
-                "date": {
-                    "$date": 1358380800000
-                },
-                "grade": "A",
-                "score": 13
-            },
-            {
-                "date": {
-                    "$date": 1343865600000
-                },
-                "grade": "A",
-                "score": 13
-            },
-            {
-                "date": {
-                    "$date": 1323907200000
-                },
-                "grade": "B",
-                "score": 25
-            }
-        ],
         "name": "Tov Kosher Kitchen",
         "restaurant_id": "40356068"
     },
@@ -219,36 +62,6 @@
         },
         "borough": "Queens",
         "cuisine": "American ",
-        "grades": [
-            {
-                "date": {
-                    "$date": 1416009600000
-                },
-                "grade": "Z",
-                "score": 38
-            },
-            {
-                "date": {
-                    "$date": 1398988800000
-                },
-                "grade": "A",
-                "score": 10
-            },
-            {
-                "date": {
-                    "$date": 1362182400000
-                },
-                "grade": "A",
-                "score": 7
-            },
-            {
-                "date": {
-                    "$date": 1328832000000
-                },
-                "grade": "A",
-                "score": 13
-            }
-        ],
         "name": "Brunos On The Boulevard",
         "restaurant_id": "40356151"
     },
@@ -260,36 +73,6 @@
         },
         "borough": "Staten Island",
         "cuisine": "Jewish/Kosher",
-        "grades": [
-            {
-                "date": {
-                    "$date": 1412553600000
-                },
-                "grade": "A",
-                "score": 9
-            },
-            {
-                "date": {
-                    "$date": 1400544000000
-                },
-                "grade": "A",
-                "score": 12
-            },
-            {
-                "date": {
-                    "$date": 1365033600000
-                },
-                "grade": "A",
-                "score": 12
-            },
-            {
-                "date": {
-                    "$date": 1327363200000
-                },
-                "grade": "A",
-                "score": 9
-            }
-        ],
         "name": "Kosher Island",
         "restaurant_id": "40356442"
     },
@@ -301,50 +84,6 @@
         },
         "borough": "Brooklyn",
         "cuisine": "Delicatessen",
-        "grades": [
-            {
-                "date": {
-                    "$date": 1401321600000
-                },
-                "grade": "A",
-                "score": 10
-            },
-            {
-                "date": {
-                    "$date": 1389657600000
-                },
-                "grade": "A",
-                "score": 10
-            },
-            {
-                "date": {
-                    "$date": 1375488000000
-                },
-                "grade": "A",
-                "score": 8
-            },
-            {
-                "date": {
-                    "$date": 1342569600000
-                },
-                "grade": "A",
-                "score": 10
-            },
-            {
-                "date": {
-                    "$date": 1331251200000
-                },
-                "grade": "A",
-                "score": 13
-            },
-            {
-                "date": {
-                    "$date": 1318550400000
-                },
-                "grade": "A",
-                "score": 9
-            }
-        ],
         "name": "Wilken'S Fine Food",
         "restaurant_id": "40356483"
     },
@@ -356,43 +95,6 @@
         },
         "borough": "Brooklyn",
         "cuisine": "American ",
-        "grades": [
-            {
-                "date": {
-                    "$date": 1405641600000
-                },
-                "grade": "A",
-                "score": 12
-            },
-            {
-                "date": {
-                    "$date": 1375142400000
-                },
-                "grade": "A",
-                "score": 12
-            },
-            {
-                "date": {
-                    "$date": 1360713600000
-                },
-                "grade": "A",
-                "score": 11
-            },
-            {
-                "date": {
-                    "$date": 1345075200000
-                },
-                "grade": "A",
-                "score": 2
-            },
-            {
-                "date": {
-                    "$date": 1313539200000
-                },
-                "grade": "A",
-                "score": 11
-            }
-        ],
         "name": "Regina Caterers",
         "restaurant_id": "40356649"
     },
@@ -404,36 +106,6 @@
         },
         "borough": "Brooklyn",
         "cuisine": "Ice Cream, Gelato, Yogurt, Ices",
-        "grades": [
-            {
-                "date": {
-                    "$date": 1405296000000
-                },
-                "grade": "A",
-                "score": 12
-            },
-            {
-                "date": {
-                    "$date": 1373414400000
-                },
-                "grade": "A",
-                "score": 8
-            },
-            {
-                "date": {
-                    "$date": 1341964800000
-                },
-                "grade": "A",
-                "score": 5
-            },
-            {
-                "date": {
-                    "$date": 1329955200000
-                },
-                "grade": "A",
-                "score": 8
-            }
-        ],
         "name": "Taste The Tropics Ice Cream",
         "restaurant_id": "40356731"
     }

@@ -1,0 +1,16 @@
+[
+    {
+        "user_id": 1,
+        "name": "Mike",
+        "lastname": "Doe",
+        "email": "mik.dev@gmail.com",
+        "password": "passeNOSQL"
+    },
+    {
+        "user_id": 2,
+        "name": "TEST",
+        "lastname": "USER",
+        "email": "test.user@gmail.com",
+        "password": "testuser"
+    }
+]

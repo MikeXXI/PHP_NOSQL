@@ -2,9 +2,9 @@
 <?php include('menu.php'); ?>
 
 <body>
-
+    
     <?php
-    // $manager = new MongoDB\Driver\Manager("mongodb://root:secret@0.0.0.0:27017/?authSource=rest_nosql");
+    // $manager = new MongoDB\Driver\Manager("mongodb://root:secret@mongo:27017/?authSource=rest_nosql");
     // $query = new MongoDB\Driver\Query([]);
     // $rows = $manager->executeQuery('rest_nosql.restaurants', $query);
     // foreach ($rows as $row) {
@@ -12,7 +12,7 @@
     // }
     $_SESSION['user_id'] = 0;
     ?>
-
+    
     <br />
     <br />
     <br />
@@ -20,27 +20,22 @@
     <?php
     if (isset($_SESSION['user_id']))
     {
-    $user_id = $_SESSION['user_id'];
-    $file = 'favori.json';
+    $file = 'restaurants.json';
     $data = file_get_contents($file);
-    $restaurant = json_decode($data);
-    
-
-    
+    $liste_restaurant = json_decode($data);
     ?>
     <div class="restaurant_container">
-        <?php for ($i = 0; $i < 2; $i++){
-            echo'
+        <?php foreach($liste_restaurant as $restaurant){ ?>
             <div class="restaurant_cards">
-                <i class="restaurant_id">N° '.$restaurant[$user_id]->favori[$i]->restaurant_id.'</i>
-                <div class="restaurant_cards_top">
-                    <h3>'.$restaurant[$user_id]->favori[$i]->name.'</h3>
-                    <i>'.$restaurant[$user_id]->favori[$i]->cuisine.'</i>
+                <i class="restaurant_id"><?php echo "N°" . $restaurant; ?></i>
+                <!-- <div class="restaurant_cards_top">
+                    <h3><?php echo $restaurant["name"]; ?></h3>
+                    <i><?php echo $restaurant["cuisine"]; ?> </i>
                 </div>
-                <p>'.$restaurant[$user_id]->favori[$i]->address->building.' '.$restaurant[$user_id]->favori[$i]->address->street.', '.$restaurant[$user_id]->favori[$i]->address->zipcode.' - '.$restaurant[$user_id]->favori[$i]->borough.'</p>
-                <button>Supprimer de vos favoris</button>
-            </div>';
-        } }else{
+                <p><?php echo $restaurant["address"]->building . " " . $restaurant["address"]->street . ", " . $restaurant["address"]->zipcode . " - " . $restaurant["borough"]; ?></p>
+                <button>Ajouter dans vos favoris ♥</button> -->
+            </div>
+        <?php } }else{
             ?>
             <body>
             <br />
