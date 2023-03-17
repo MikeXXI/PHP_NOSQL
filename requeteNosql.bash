@@ -37,7 +37,8 @@
 #liste des restaurant trier par code postal
     $restaurent = $collection->find()->sort(["address.zipcode" => 1]);
 
-
+#insert des restaurant en favoris
+    $favori = $collection->insertOne([("user_id" => $_SESSION['user_id']), ("restaurant_id" => new MongoDB\BSON\ObjectI($id))]);
 
 
 
