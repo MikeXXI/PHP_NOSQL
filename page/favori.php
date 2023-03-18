@@ -22,14 +22,7 @@
     {
       
     ?>
-    <div class="restaurant_container">
-    <select id=tri style="position:left; max-width: 150px; max-height: 50px;">
-            <option value="nameasc">Nom croissant</option>
-            <option value="namedesc">Nom décroissant</option>
-            <option value="restaurant_id">ID</option>
-            <option value="cuisine">Cuisine</option>
-            <option value="zipcode">Code Postal</option>
-        </select>
+    <div class="restaurant_container">    
         <?php 
         $liste_restaurant = $db->favori->findOne(["user_id" => $_SESSION['user_id']]);
         var_dump($liste_restaurant);
