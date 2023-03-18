@@ -4,7 +4,7 @@
  $cursor = $collection->find();
 
 #liste des  favoris par "user_id"
-    $favori = $collection->find([("user_id" => $_SESSION['user_id'])]);
+    $favori = $collection->find(["user_id" => $_SESSION['user_id']]);
 
 #suppresion d'un favori par "user_id" et "restaurant_id"
    $favori =  $collection->deleteOne([("user_id" => $_SESSION['user_id']), ("restaurant_id" => new MongoDB\BSON\ObjectI($id))]);
@@ -32,7 +32,7 @@
     $restaurent = $collection->find()->sort(["cuisine" => 1]);
 
 #liste des restaurant trier par arrondissement
-    $restaurent = $collection->find()->sort(["address.zipcode" => 1]);
+    $restaurent = $collection->find()->sort(["address.street" => 1]);
 
 #liste des restaurant trier par code postal
     $restaurent = $collection->find()->sort(["address.zipcode" => 1]);

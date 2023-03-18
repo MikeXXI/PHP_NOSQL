@@ -1,2 +1,4 @@
 # ignore "data" directory in gitignore
 **/data
+vendor
+```

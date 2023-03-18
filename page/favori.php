@@ -10,7 +10,7 @@
     // foreach ($rows as $row) {
     //     echo $row->name, "\n";
     // }
-    $_SESSION['user_id'] = 0;
+    $_SESSION['user_id'] = 2;
     ?>
 
     <br />
@@ -20,13 +20,7 @@
     <?php
     if (isset($_SESSION['user_id']))
     {
-    $user_id = $_SESSION['user_id'];
-    $file = 'favori.json';
-    $data = file_get_contents($file);
-    $restaurant = json_decode($data);
-    
-
-    
+      
     ?>
     <div class="restaurant_container">
     <select id=tri style="position:left; max-width: 150px; max-height: 50px;">
@@ -36,15 +30,22 @@
             <option value="cuisine">Cuisine</option>
             <option value="zipcode">Code Postal</option>
         </select>
-        <?php for ($i = 0; $i < 2; $i++){
+        <?php 
+        $liste_restaurant = $db->favori->findOne(["user_id" => $_SESSION['user_id']]);
+        var_dump($liste_restaurant);
+        foreach ($liste_restaurant as $restaurant){
+            
             echo'
             <div class="restaurant_cards">
-                <i class="restaurant_id">N° '.$restaurant[$user_id]->favori[$i]->restaurant_id.'</i>
+                <i class="restaurant_id">N° '.$restaurant["favori"].'</i>
                 <div class="restaurant_cards_top">
-                    <h3>'.$restaurant[$user_id]->favori[$i]->name.'</h3>
-                    <i>'.$restaurant[$user_id]->favori[$i]->cuisine.'</i>
+                    <h3>'.$restaurant["favori"]["name"].'</h3>
+                    <i>'.$restaurant["favori"]["cuisine"].'</i>
                 </div>
-                <p>'.$restaurant[$user_id]->favori[$i]->address->building.' '.$restaurant[$user_id]->favori[$i]->address->street.', '.$restaurant[$user_id]->favori[$i]->address->zipcode.' - '.$restaurant[$user_id]->favori[$i]->borough.'</p>
+                <p>'.$restaurant["favori"]["address"]["building"].
+                ' '.$restaurant["favori"]["address"]["street"].
+                ', '.$restaurant["favori"]["address"]["zipcode"].
+                ' - '.$restaurant["favori"]["borough"].'</p>
                 <button>Supprimer de vos favoris</button>
             </div>';
         } }else{

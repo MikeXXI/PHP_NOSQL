@@ -19,20 +19,26 @@
 
     <?php
     if (isset($_SESSION['user_id'])) {
-        $file = 'restaurants.json';
-        $data = file_get_contents($file);
-        $restaurant = json_decode($data);
+        $liste_restaurant = $db->restaurants->find();
     ?>
         <div class="restaurant_container">
-            <?php for ($i = 0; $i < 10; $i++) {
+            <?php foreach ($liste_restaurant as $restaurant) {
                 echo '
             <div class="restaurant_cards">
-                <i class="restaurant_id">N° ' . $restaurant[$i]->restaurant_id . '</i>
+                <i class="restaurant_id">N° ' . $restaurant["restaurant_id"]. '</i>
                 <div class="restaurant_cards_top">
-                    <h3>' . $restaurant[$i]->name . '</h3>
-                    <i>' . $restaurant[$i]->cuisine . '</i>
+                    <h3>' . $restaurant["name"]. '</h3>
+                    <i>' . $restaurant["cuisine"]. '</i>
                 </div>
-                <p><a href="https://www.google.com/maps/place/' . $restaurant[$i]->address->building . '+' . $restaurant[$i]->address->street . '+' . $restaurant[$i]->address->zipcode . '+' . $restaurant[$i]->borough . '"> ' . $restaurant[$i]->address->building . ' ' . $restaurant[$i]->address->street . ' ' . $restaurant[$i]->address->zipcode . ' ' . $restaurant[$i]->borough . ' </a></p>
+                <p><a href="https://www.google.com/maps/place/' . $restaurant["address"]["building"].
+                 '+' . $restaurant["address"]["street"] . 
+                 '+' . $restaurant["address"]["zipcode"] . 
+                 '+' .$restaurant["borough"]. 
+                 '"> ' . $restaurant["address"]["building"] .
+                  ' ' . $restaurant["address"]["street"] . 
+                  ' ' . $restaurant["address"]["zipcode"] . 
+                  ' ' . $restaurant["borough"] . ' </a></p>
+                
                 <button>Ajouter dans vos favoris ♥</button>
             </div>';
             }
