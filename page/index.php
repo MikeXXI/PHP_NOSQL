@@ -6,13 +6,13 @@
 <body>
 
     <?php
-        // if(isset($_POST["restaurant_id"])){
-            $delete_resto = $db->favori->deleteOne([
-                "user_id" => $_SESSION['user_id'],
-                "favori" => $_POST['restaurant_id'],
-            ]);
-            echo "Ce restaurant a été supprimé de vos favoris";
-        // }
+    // if(isset($_POST["restaurant_id"])){
+    $delete_resto = $db->favori->deleteOne([
+        "user_id" => $_SESSION['user_id'],
+        "favori" => $_POST['restaurant_id'],
+    ]);
+    echo "Ce restaurant a été supprimé de vos favoris";
+    // }
     ?>
 
     <br />
@@ -21,7 +21,6 @@
 
     <?php
     if (isset($_SESSION['user_id'])) {
-        $liste_restaurant = $db->restaurants->find(array(), array('limit' => 100));
         if (isset($_POST['selection'])) {
             if ($_POST["selection"] == "nameasc") {
                 $_SESSION["selecttri"] = "nameasc";
@@ -39,32 +38,34 @@
                 $_SESSION["selecttri"] = "zipcode";
                 $liste_restaurant = $db->restaurants->find(array(), array('limit' => 100, 'sort' => array("address.zipcode" => 1)));
             }
+        } else {
+            $liste_restaurant = $db->restaurants->find(array(), array('limit' => 100));
         }
 
     ?>
         <form method="POST" action="" name="formtri">
             <select onchange="formtri.submit()" name="selection" style="position:left; max-width: 150px; max-height: 50px;">
-                <option value="nameasc" <?php if ($_SESSION["selecttri"] == "nameasc") {
+                <option value="nameasc" <?php if (isset($_SESSION["selecttri"]) && $_SESSION["selecttri"] == "nameasc") {
                                             echo 'selected="selected"';
                                         } else {
                                             echo "";
                                         } ?>>Nom croissant</option>
-                <option value="namedesc" <?php if ($_SESSION["selecttri"] == "namedesc") {
+                <option value="namedesc" <?php if (isset($_SESSION["selecttri"]) && $_SESSION["selecttri"] == "namedesc") {
                                                 echo 'selected="selected"';
                                             } else {
                                                 echo "";
                                             } ?>>Nom décroissant</option>
-                <option value="restaurant_id" <?php if ($_SESSION["selecttri"] == "restaurant_id") {
+                <option value="restaurant_id" <?php if (isset($_SESSION["selecttri"]) && $_SESSION["selecttri"] == "restaurant_id") {
                                                     echo 'selected="selected"';
                                                 } else {
                                                     echo "";
                                                 } ?>>ID</option>
-                <option value="cuisine" <?php if ($_SESSION["selecttri"] == "cuisine") {
+                <option value="cuisine" <?php if (isset($_SESSION["selecttri"]) && $_SESSION["selecttri"] == "cuisine") {
                                             echo 'selected="selected"';
                                         } else {
                                             echo "";
                                         } ?>>Cuisine</option>
-                <option value="zipcode" <?php if ($_SESSION["selecttri"] == "zipcode") {
+                <option value="zipcode" <?php if (isset($_SESSION["selecttri"]) && $_SESSION["selecttri"] == "zipcode") {
                                             echo 'selected="selected"';
                                         } else {
                                             echo "";
@@ -76,20 +77,20 @@
                 echo '
                 <form action="favori.php" method="POST">
                     <div class="restaurant_cards">
-                        <i class="restaurant_id">N° ' . $restaurant["restaurant_id"]. '</i>
+                        <i class="restaurant_id">N° ' . $restaurant["restaurant_id"] . '</i>
                         <div class="restaurant_cards_top">
-                            <h3>' . $restaurant["name"]. '</h3>
-                             <i>' . $restaurant["cuisine"]. '</i>
+                            <h3>' . $restaurant["name"] . '</h3>
+                             <i>' . $restaurant["cuisine"] . '</i>
                         </div>
-                        <p><a href="https://www.google.com/maps/place/' . $restaurant["address"]["building"].
-                            '+' . $restaurant["address"]["street"] . 
-                            '+' . $restaurant["address"]["zipcode"] . 
-                            '+' .$restaurant["borough"]. 
-                            '"> ' . $restaurant["address"]["building"] .
-                            ' ' . $restaurant["address"]["street"] . 
-                            ' ' . $restaurant["address"]["zipcode"] . 
-                            ' ' . $restaurant["borough"] . ' </a></p>
-                            <input type="hidden" id="restaurant_id" name="restaurant_id" value='.$restaurant["restaurant_id"].' />                
+                        <p><a href="https://www.google.com/maps/place/' . $restaurant["address"]["building"] .
+                    '+' . $restaurant["address"]["street"] .
+                    '+' . $restaurant["address"]["zipcode"] .
+                    '+' . $restaurant["borough"] .
+                    '"> ' . $restaurant["address"]["building"] .
+                    ' ' . $restaurant["address"]["street"] .
+                    ' ' . $restaurant["address"]["zipcode"] .
+                    ' ' . $restaurant["borough"] . ' </a></p>
+                            <input type="hidden" id="restaurant_id" name="restaurant_id" value=' . $restaurant["restaurant_id"] . ' />                
                         <button type="submit">Ajouter dans vos favoris ♥</button>
                         </form>
                     </div>                    
