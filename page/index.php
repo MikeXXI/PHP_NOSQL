@@ -28,12 +28,18 @@
             } elseif ($_POST["selection"] == "namedesc") {
                 $_SESSION["selecttri"] = "namedesc";
                 $liste_restaurant = $db->restaurants->find(array(), array('limit' => 100, 'sort' => array("name" => -1)));
-            } elseif ($_POST["selection"] == "restaurant_id") {
-                $_SESSION["selecttri"] = "restaurant_id";
+            } elseif ($_POST["selection"] == "restaurant_idasc") {
+                $_SESSION["selecttri"] = "restaurant_idasc";
                 $liste_restaurant = $db->restaurants->find(array(), array('limit' => 100, 'sort' => array("restaurant_id" => 1)));
+            } elseif ($_POST["selection"] == "restaurant_iddesc") {
+                $_SESSION["selecttri"] = "restaurant_iddesc";
+                $liste_restaurant = $db->restaurants->find(array(), array('limit' => 100, 'sort' => array("restaurant_id" => -1)));
             } elseif ($_POST["selection"] == "cuisine") {
                 $_SESSION["selecttri"] = "cuisine";
                 $liste_restaurant = $db->restaurants->find(array(), array('limit' => 100, 'sort' => array("cuisine" => 1)));
+            } elseif ($_POST["selection"] == "borought") {
+                $_SESSION["selecttri"] = "borought";
+                $liste_restaurant = $db->restaurants->find(array(), array('limit' => 100, 'sort' => array("borough" => 1)));
             } elseif ($_POST["selection"] == "zipcode") {
                 $_SESSION["selecttri"] = "zipcode";
                 $liste_restaurant = $db->restaurants->find(array(), array('limit' => 100, 'sort' => array("address.zipcode" => 1)));
@@ -49,22 +55,32 @@
                                             echo 'selected="selected"';
                                         } else {
                                             echo "";
-                                        } ?>>Nom croissant</option>
+                                        } ?>>Nom (croissant)</option>
                 <option value="namedesc" <?php if (isset($_SESSION["selecttri"]) && $_SESSION["selecttri"] == "namedesc") {
                                                 echo 'selected="selected"';
                                             } else {
                                                 echo "";
-                                            } ?>>Nom décroissant</option>
-                <option value="restaurant_id" <?php if (isset($_SESSION["selecttri"]) && $_SESSION["selecttri"] == "restaurant_id") {
-                                                    echo 'selected="selected"';
-                                                } else {
-                                                    echo "";
-                                                } ?>>ID</option>
+                                            } ?>>Nom (décroissant)</option>
+                <option value="restaurant_idasc" <?php if (isset($_SESSION["selecttri"]) && $_SESSION["selecttri"] == "restaurant_idasc") {
+                                                        echo 'selected="selected"';
+                                                    } else {
+                                                        echo "";
+                                                    } ?>>ID (croissant)</option>
+                <option value="restaurant_iddesc" <?php if (isset($_SESSION["selecttri"]) && $_SESSION["selecttri"] == "restaurant_iddesc") {
+                                                        echo 'selected="selected"';
+                                                    } else {
+                                                        echo "";
+                                                    } ?>>ID (décroissant)</option>
                 <option value="cuisine" <?php if (isset($_SESSION["selecttri"]) && $_SESSION["selecttri"] == "cuisine") {
                                             echo 'selected="selected"';
                                         } else {
                                             echo "";
                                         } ?>>Cuisine</option>
+                <option value="borought" <?php if (isset($_SESSION["selecttri"]) && $_SESSION["selecttri"] == "borought") {
+                                                echo 'selected="selected"';
+                                            } else {
+                                                echo "";
+                                            } ?>>Arrondissement</option>
                 <option value="zipcode" <?php if (isset($_SESSION["selecttri"]) && $_SESSION["selecttri"] == "zipcode") {
                                             echo 'selected="selected"';
                                         } else {
