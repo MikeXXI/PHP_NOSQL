@@ -38,7 +38,7 @@ echo'
                                     </div>
                                     <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
                                 </form>
-                                <a href="inscription.php"><button class="btn btn-outline-light btn-lg px-5">Inscription</button></a>
+                                
                             </div>
                         </div>
                     </div>
@@ -51,3 +51,4 @@ echo'
 }
 ?>
 </html>
+<!-- <a href="inscription.php"><button class="btn btn-outline-light btn-lg px-5">Inscription</button></a> -->

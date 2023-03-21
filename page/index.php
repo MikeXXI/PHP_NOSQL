@@ -6,12 +6,13 @@
 <body>
 
     <?php
-    // $manager = new MongoDB\Driver\Manager("mongodb://root:secret@mongo:27017/?authSource=rest_nosql");
-    // $query = new MongoDB\Driver\Query([]);
-    // $rows = $manager->executeQuery('rest_nosql.restaurants', $query);
-    // foreach ($rows as $row) {
-    //     echo $row->name, "\n";
-    // }
+        // if(isset($_POST["restaurant_id"])){
+            $delete_resto = $db->favori->deleteOne([
+                "user_id" => $_SESSION['user_id'],
+                "favori" => $_POST['restaurant_id'],
+            ]);
+            echo "Ce restaurant a été supprimé de vos favoris";
+        // }
     ?>
 
     <br />
@@ -21,7 +22,7 @@
     <?php
     if (isset($_SESSION['user_id'])) {
         $liste_restaurant = $db->restaurants->find(array(), array('limit' => 100));
-        2*100
+    
     ?>
     <select id=tri style="position:left; max-width: 150px; max-height: 50px;">
             <option value="nameasc">Nom croissant</option>
@@ -33,23 +34,26 @@
         <div class="restaurant_container">
             <?php foreach ($liste_restaurant as $restaurant) {
                 echo '
-            <div class="restaurant_cards">
-                <i class="restaurant_id">N° ' . $restaurant["restaurant_id"]. '</i>
-                <div class="restaurant_cards_top">
-                    <h3>' . $restaurant["name"]. '</h3>
-                    <i>' . $restaurant["cuisine"]. '</i>
-                </div>
-                <p><a href="https://www.google.com/maps/place/' . $restaurant["address"]["building"].
-                 '+' . $restaurant["address"]["street"] . 
-                 '+' . $restaurant["address"]["zipcode"] . 
-                 '+' .$restaurant["borough"]. 
-                 '"> ' . $restaurant["address"]["building"] .
-                  ' ' . $restaurant["address"]["street"] . 
-                  ' ' . $restaurant["address"]["zipcode"] . 
-                  ' ' . $restaurant["borough"] . ' </a></p>
-                
-                <button>Ajouter dans vos favoris ♥</button>
-            </div>';
+                <form action="favori.php" method="POST">
+                    <div class="restaurant_cards">
+                        <i class="restaurant_id">N° ' . $restaurant["restaurant_id"]. '</i>
+                        <div class="restaurant_cards_top">
+                            <h3>' . $restaurant["name"]. '</h3>
+                             <i>' . $restaurant["cuisine"]. '</i>
+                        </div>
+                        <p><a href="https://www.google.com/maps/place/' . $restaurant["address"]["building"].
+                            '+' . $restaurant["address"]["street"] . 
+                            '+' . $restaurant["address"]["zipcode"] . 
+                            '+' .$restaurant["borough"]. 
+                            '"> ' . $restaurant["address"]["building"] .
+                            ' ' . $restaurant["address"]["street"] . 
+                            ' ' . $restaurant["address"]["zipcode"] . 
+                            ' ' . $restaurant["borough"] . ' </a></p>
+                            <input type="hidden" id="restaurant_id" name="restaurant_id" value='.$restaurant["restaurant_id"].' />                
+                        <button type="submit">Ajouter dans vos favoris ♥</button>
+                        </form>
+                    </div>                    
+                ';
             }
         } else {
             ?>
@@ -66,7 +70,7 @@
                                             <h2 class="fw-bold mb-2 text-uppercase">Access Denied</h2>
                                             <p class="text-white-50 mb-5">Il est nécessaire de vous connectez pour accèder à notre site !</p>
                                             <a href="connexion.php"><button class="btn btn-outline-light btn-lg px-5">Connexion</button></a>
-                                            <a href="inscription.php"><button class="btn btn-outline-light btn-lg px-5">Inscription</button></a>
+                                            <!-- <a href="inscription.php"><button class="btn btn-outline-light btn-lg px-5">Inscription</button></a> -->
                                         </div>
                                     </div>
                                 </div>

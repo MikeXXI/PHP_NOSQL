@@ -4,7 +4,18 @@
 <body>
 
     <?php
-    
+    // $verif_resto = $db->favori->findOne([
+    //     "user_id" => $_SESSION['user_id'],
+    //     "favori" => $_POST['restaurant_id'],
+    // ]);
+    // if ($verif_resto != null) {
+        $favori = $db->favori->insertOne([
+            "user_id" => $_SESSION['user_id'],
+            "favori" => $_POST['restaurant_id'],
+        ]);
+    // } else{
+    // echo "Ce restaurant est déjà dans vos favoris";
+    // }
     ?>
 
     <br />
@@ -12,31 +23,40 @@
     <br />
 
     <?php
-    if (isset($_SESSION['user_id']))
-    {
-      
+    if (isset($_SESSION['user_id'])) {
+
     ?>
-    <div class="restaurant_container">    
-        <?php 
-        $liste_restaurant = $db->favori->findOne(["user_id" => $_SESSION['user_id']]);
-        var_dump($liste_restaurant);
-        foreach ($liste_restaurant as $restaurant){
-            
-            echo'
-            <div class="restaurant_cards">
-                <i class="restaurant_id">N° '.$restaurant["favori"].'</i>
-                <div class="restaurant_cards_top">
-                    <h3>'.$restaurant["favori"]["name"].'</h3>
-                    <i>'.$restaurant["favori"]["cuisine"].'</i>
-                </div>
-                <p>'.$restaurant["favori"]["address"]["building"].
-                ' '.$restaurant["favori"]["address"]["street"].
-                ', '.$restaurant["favori"]["address"]["zipcode"].
-                ' - '.$restaurant["favori"]["borough"].'</p>
-                <button>Supprimer de vos favoris</button>
-            </div>';
-        } }else{
-            ?>
+        <div class="restaurant_container">
+        <?php
+        $liste_fav = $db->favori->find(["user_id" => $_SESSION['user_id']]);
+        foreach ($liste_fav as $recup_fav) {
+            $liste_restaurant = $db->restaurants->find(["restaurant_id" => $recup_fav["favori"]]);
+            foreach ($liste_restaurant as $restaurant) {
+                echo '
+                <form action="index.php" method="POST">
+                    <div class="restaurant_cards">
+                        <i class="restaurant_id">N° ' . $restaurant["restaurant_id"] . '</i>
+                        <div class="restaurant_cards_top">
+                            <h3>' . $restaurant["name"] . '</h3>
+                             <i>' . $restaurant["cuisine"] . '</i>
+                        </div>
+                        <p><a href="https://www.google.com/maps/place/' . $restaurant["address"]["building"] .
+                    '+' . $restaurant["address"]["street"] .
+                    '+' . $restaurant["address"]["zipcode"] .
+                    '+' . $restaurant["borough"] .
+                    '"> ' . $restaurant["address"]["building"] .
+                    ' ' . $restaurant["address"]["street"] .
+                    ' ' . $restaurant["address"]["zipcode"] .
+                    ' ' . $restaurant["borough"] . ' </a></p>
+                            <input type="hidden" id="restaurant_id" name="restaurant_id" value=' . $restaurant["restaurant_id"] . ' />                
+                        <button type="submit">Supprimer de vos favoris</button>
+                        </form>
+                    </div>                    
+                ';
+            }
+        }
+    } else {
+        echo '
             <body>
             <br />
             <section class="gradient-custom" style="width: 100%;">
@@ -57,12 +77,10 @@
                     </div>
                 </div>
             </section>
-        </body>
-        <?php
-        }
-        
+        </body>';
+    }
         ?>
-    </div>
+        </div>
 </body>
 
 </html>
