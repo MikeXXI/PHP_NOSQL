@@ -3,19 +3,19 @@
 
 <?php
 
-
 $user = $db->users->findOne(array("email" => $_POST["typeEmailX"], "password" => $_POST["typePasswordX"]));
-if($user != null){
+
+if ($user != null) {
     $_SESSION["user_id"] = $user["_id"];
     echo $_SESSION["user_id"];
-}else{
+} else {
     echo "Erreur de connexion";
 }
 
-if(isset($_SESSION["user_id"])){
+if (isset($_SESSION["user_id"])) {
     header("Location: index.php");
-}else{
-echo'
+} else {
+    echo '
 <body>
     <br />
     <section class="gradient-custom" style="width: 100%;">
