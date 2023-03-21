@@ -1,6 +1,8 @@
 <?php include('header.php'); ?>
 <?php include('menu.php'); ?>
 
+
+
 <body>
 
     <?php
@@ -10,7 +12,6 @@
     // foreach ($rows as $row) {
     //     echo $row->name, "\n";
     // }
-    $_SESSION['user_id'] = 0;
     ?>
 
     <br />
@@ -19,7 +20,8 @@
 
     <?php
     if (isset($_SESSION['user_id'])) {
-        $liste_restaurant = $db->restaurants->find();
+        $liste_restaurant = $db->restaurants->find(array(), array('limit' => 100));
+        2*100
     ?>
     <select id=tri style="position:left; max-width: 150px; max-height: 50px;">
             <option value="nameasc">Nom croissant</option>
