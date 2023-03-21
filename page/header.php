@@ -1,6 +1,10 @@
 <?php
 require 'vendor/autoload.php';
 
+if(session_status() == PHP_SESSION_NONE){
+  session_start ();  
+}
+
 $client = new MongoDB\Client("mongodb://localhost:27017");
 
 $db=$client->tests;
@@ -22,5 +26,6 @@ $db=$client->tests;
   <link rel="stylesheet" href="style.css">
 
   <title>Tp NO SQL</title>
+  
 
 </head>
