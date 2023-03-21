@@ -4,13 +4,7 @@
 <body>
 
     <?php
-    // $manager = new MongoDB\Driver\Manager("mongodb://root:secret@0.0.0.0:27017/?authSource=rest_nosql");
-    // $query = new MongoDB\Driver\Query([]);
-    // $rows = $manager->executeQuery('rest_nosql.restaurants', $query);
-    // foreach ($rows as $row) {
-    //     echo $row->name, "\n";
-    // }
-    $_SESSION['user_id'] = 2;
+    
     ?>
 
     <br />

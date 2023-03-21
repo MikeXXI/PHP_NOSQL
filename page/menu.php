@@ -13,7 +13,13 @@
                     <a href="favori.php">Favoris</a>
                 </li>
                 <li>
-                    <a href="connexion.php">Connexion</a>
+                    <?php
+                    if (isset($_SESSION['user_id'])) {
+                        echo '<a href="deconnexion.php">Deconnexion</a>';
+                    } else {
+                        echo '<a href="connexion.php">Connexion</a>';
+                    }
+                    ?>
                 </li>
             </ul>
         </nav>
