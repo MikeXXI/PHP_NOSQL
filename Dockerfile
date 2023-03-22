@@ -8,8 +8,8 @@ WORKDIR /var/www/html
 
 ADD page/ .
 
-RUN apt update && apt install zip unzip git -y && apt upgrade -y
+RUN apt update && apt install zip unzip git libcurl4-openssl-dev pkg-config libssl-dev -y && apt upgrade -y
 
-RUN pecl install mongodb && docker-php-ext-enable mongodb
+RUN pecl install mongodb && docker-php-ext-enable mongodb && pecl config-set php_ini /usr/local/etc/php/php.ini
  
 RUN composer require mongodb/mongodb && composer dump-autoload
