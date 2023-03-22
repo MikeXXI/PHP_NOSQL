@@ -4,8 +4,8 @@ services:
   php-site:
     build: . 
     container_name: php-site
-    volumes:
-      - ./page:/var/www/html
+#    volumes:
+#      - ./page:/var/www/html
     ports:
       - "8080:80"
     environment:
