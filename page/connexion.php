@@ -14,6 +14,7 @@ if (isset($_POST["typeEmailX"]) && isset($_POST["typePasswordX"])) {
 
 if (isset($_SESSION["user_id"])) {
     header("Location: index.php");
+    die();
 } else {
     echo '
 <body>
