@@ -1,6 +1,6 @@
 <?php include('header.php'); ?>
 <?php include('menu.php'); ?>
-<br /><br /><br />
+
 <?php
 if (isset($_POST["typeEmailX"]) && isset($_POST["typePasswordX"])) {
     $user = $db->users->findOne(array("email" => $_POST["typeEmailX"], "password" => $_POST["typePasswordX"]));
