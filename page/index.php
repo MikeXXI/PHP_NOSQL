@@ -2,22 +2,23 @@
 <?php include('menu.php'); ?>
 
 
-
+<br /><br /><br />
 <body>
 
     <?php
-    // if(isset($_POST["restaurant_id"])){
+    if(isset($_POST["restaurant_id"])){
     $delete_resto = $db->favori->deleteOne([
         "user_id" => $_SESSION['user_id'],
         "favori" => $_POST['restaurant_id'],
     ]);
-    echo "Ce restaurant a été supprimé de vos favoris";
-    // }
+    echo "<div id='modal_err_resto' class='modal'>
+    <div class='modal-content'>
+        <h4>Suppression</h4>
+        <p>Le restaurant a bien été supprimé de vos favoris</p>
+        </div>
+       </div> ";
+    }
     ?>
-
-    <br />
-    <br />
-    <br />
 
     <?php
     if (isset($_SESSION['user_id'])) {

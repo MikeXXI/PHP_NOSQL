@@ -6,6 +6,7 @@ if(session_status() == PHP_SESSION_NONE){
 }
 
 $client = new MongoDB\Client("mongodb://root:secret@mongodb:27017");
+// $client = new MongoDB\Client("mongodb://localhost:27017");
 
 $db=$client->tests;
 ?>

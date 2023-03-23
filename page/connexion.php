@@ -1,15 +1,16 @@
 <?php include('header.php'); ?>
 <?php include('menu.php'); ?>
-
+<br /><br /><br />
 <?php
+if (isset($_POST["typeEmailX"]) && isset($_POST["typePasswordX"])) {
+    $user = $db->users->findOne(array("email" => $_POST["typeEmailX"], "password" => $_POST["typePasswordX"]));
 
-$user = $db->users->findOne(array("email" => $_POST["typeEmailX"], "password" => $_POST["typePasswordX"]));
-
-if ($user != null) {
-    $_SESSION["user_id"] = $user["_id"];
-    echo $_SESSION["user_id"];
-} else {
-    echo "Erreur de connexion";
+    if ($user != null) {
+        $_SESSION["user_id"] = $user["_id"];
+        echo $_SESSION["user_id"];
+    } else {
+        echo "Erreur de connexion";
+    }
 }
 
 if (isset($_SESSION["user_id"])) {
@@ -50,5 +51,6 @@ if (isset($_SESSION["user_id"])) {
 ';
 }
 ?>
+
 </html>
 <!-- <a href="inscription.php"><button class="btn btn-outline-light btn-lg px-5">Inscription</button></a> -->
