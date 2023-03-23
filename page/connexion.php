@@ -7,7 +7,6 @@ if (isset($_POST["typeEmailX"]) && isset($_POST["typePasswordX"])) {
 
     if ($user != null) {
         $_SESSION["user_id"] = $user["_id"];
-        echo $_SESSION["user_id"];
     } else {
         echo "Erreur de connexion";
     }

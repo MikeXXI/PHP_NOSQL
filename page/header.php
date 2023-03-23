@@ -27,6 +27,4 @@ $db=$client->tests;
   <link rel="stylesheet" href="style.css">
 
   <title>Tp NO SQL</title>
-  
-
 </head>

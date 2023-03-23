@@ -1,20 +1,23 @@
 <?php include('header.php'); ?>
 <?php include('menu.php'); ?>
 <br /><br /><br />
+
 <body>
 
     <?php
-    $verif_resto = $db->favori->findOne([
-        "user_id" => $_SESSION['user_id'],
-        "favori" => $_POST['restaurant_id'],
-    ]);
-    if (!$verif_resto) {
-        $favori = $db->favori->insertOne([
+    if (isset($_POST["restaurant_id"])) {
+        $verif_resto = $db->favori->findOne([
             "user_id" => $_SESSION['user_id'],
             "favori" => $_POST['restaurant_id'],
         ]);
-    } else{
-    echo "Ce restaurant est déjà dans vos favoris";
+        if (!$verif_resto) {
+            $favori = $db->favori->insertOne([
+                "user_id" => $_SESSION['user_id'],
+                "favori" => $_POST['restaurant_id'],
+            ]);
+        } else {
+            echo "Ce restaurant est déjà dans vos favoris";
+        }
     }
     ?>
 

@@ -3,15 +3,16 @@
 
 
 <br /><br /><br />
+
 <body>
 
     <?php
-    if(isset($_POST["restaurant_id"])){
-    $delete_resto = $db->favori->deleteOne([
-        "user_id" => $_SESSION['user_id'],
-        "favori" => $_POST['restaurant_id'],
-    ]);
-    echo "<div id='modal_err_resto' class='modal'>
+    if (isset($_POST["restaurant_id"])) {
+        $delete_resto = $db->favori->deleteOne([
+            "user_id" => $_SESSION['user_id'],
+            "favori" => $_POST['restaurant_id'],
+        ]);
+        echo "<div id='modal_err_resto' class='modal'>
     <div class='modal-content'>
         <h4>Suppression</h4>
         <p>Le restaurant a bien été supprimé de vos favoris</p>
