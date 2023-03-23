@@ -7,11 +7,11 @@
 
     <?php
     // if(isset($_POST["restaurant_id"])){
-    // $delete_resto = $db->favori->deleteOne([
-    //     "user_id" => $_SESSION['user_id'],
-    //     "favori" => $_POST['restaurant_id'],
-    // ]);
-    // echo "Ce restaurant a été supprimé de vos favoris";
+    $delete_resto = $db->favori->deleteOne([
+        "user_id" => $_SESSION['user_id'],
+        "favori" => $_POST['restaurant_id'],
+    ]);
+    echo "Ce restaurant a été supprimé de vos favoris";
     // }
     ?>
 

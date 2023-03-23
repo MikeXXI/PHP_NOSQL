@@ -3,7 +3,7 @@
 
 <?php
 
-$user = $db->users->find(array("email" => $_POST["typeEmailX"], "password" => $_POST["typePasswordX"]));
+$user = $db->users->findOne(array("email" => $_POST["typeEmailX"], "password" => $_POST["typePasswordX"]));
 
 if ($user != null) {
     $_SESSION["user_id"] = $user["_id"];
