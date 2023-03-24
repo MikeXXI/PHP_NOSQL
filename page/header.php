@@ -12,8 +12,7 @@ $client = new MongoDB\Client("mongodb://root:secret@mongodb:27017");
 // Connexion à la base de données version DEV (local)
 // $client = new MongoDB\Client("mongodb://localhost:27017");
 /* Il crée une variable appelée `$db` et lui attribue la base de données `tests`. */
-$db=$client->tests;
-?>
+$db=$client->tests;?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" >
 

@@ -4,7 +4,6 @@ include('header.php');
 ?>
 
 <body>
-
     <?php
     /* Ce code est utilisé pour supprimer un restaurant de la liste des favoris, via l'envoi d'un $_POST["restaurant_id"]. 
     Si celui si est défini on supprime le restaurant qui correspond au restaurant_id et au id utilisateur en cours.
