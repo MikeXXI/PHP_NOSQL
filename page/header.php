@@ -1,21 +1,9 @@
 <?php
-/* Vérifier si la session est déjà démarrée ou non.
-Sinon, il démarrera la session. */
 if(session_status() == PHP_SESSION_NONE){
   session_start ();  
 }
-
-// Inclure le fichier `vendor/autoload.php` qui permet d'utiliser les classes de MongoDB.
 require 'vendor/autoload.php';
-
-
-
-// Connexion à la base de données version PROD (docker)
 $client = new MongoDB\Client("mongodb://root:secret@mongodb:27017");
-// Connexion à la base de données version DEV (local)
-// $client = new MongoDB\Client("mongodb://localhost:27017");
-
-/* Il crée une variable appelée `$db` et lui attribue la base de données `tests`. */
 $db=$client->tests;
 ?>
 
