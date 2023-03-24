@@ -1,6 +1,6 @@
 <?php 
-// Permet d'inclure le code html ainsi que le code php de header.php ( qui contient le code html et php de la barre de navigation )
 include('header.php'); 
+// Permet d'inclure le code html ainsi que le code php de header.php ( qui contient le code html et php de la barre de navigation )
 ?>
 
 <!-- Html pour recuperer les informations pour la future page d'inscription -->
