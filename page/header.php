@@ -6,8 +6,6 @@ require 'vendor/autoload.php';
 $client = new MongoDB\Client("mongodb://root:secret@mongodb:27017");
 $db=$client->tests;
 ?>
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
 
