@@ -1,12 +1,11 @@
 <?php
-
 /* Vérifier si la session est déjà démarrée ou non.
 Sinon, il démarrera la session. */
 if(session_status() == PHP_SESSION_NONE){
   session_start ();  
 }
 
-
+// Inclure le fichier `vendor/autoload.php` qui permet d'utiliser les classes de MongoDB.
 require 'vendor/autoload.php';
 
 

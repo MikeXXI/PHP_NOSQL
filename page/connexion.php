@@ -22,7 +22,7 @@ if (isset($_POST["typeEmailX"]) && isset($_POST["typePasswordX"])) {
 pas le cas, il affiche le formulaire de connexion. */
 if (isset($_SESSION["user_id"])) {
     header("Location: index.php");
-    die();
+    exit();
 } else {
     echo '
 <body>
