@@ -15,7 +15,6 @@ $client = new MongoDB\Client("mongodb://root:secret@mongodb:27017");
 $db=$client->tests;?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" >
-
 <head>
   <!-- Font Awesome -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
@@ -25,9 +24,7 @@ $db=$client->tests;?>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
   <link rel="stylesheet" href="style.css">
-
   <title>Tp NO SQL</title>
-
   <?php 
   // Inclure le fichier menu.php qui correspond au menu de notre site.
   include('menu.php'); 
