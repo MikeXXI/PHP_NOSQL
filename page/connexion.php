@@ -1,15 +1,29 @@
 <?php 
 include('header.php'); 
+// Permet d'inclure le code html ainsi que le code php de header.php ( qui contient le code html et php de la barre de navigation )
+?>
+
+
+<?php
+/* Vérifie si l'e-mail et le mot de passe sont définis et s'ils le sont, il vérifie si l'e-mail et le
+mot de passe sont dans la base de données. Si tel est le cas, il définit la session user_id sur
+l'identifiant de l'utilisateur. Sinon, il affiche un message d'erreur. */
 if (isset($_POST["typeEmailX"]) && isset($_POST["typePasswordX"])) {
     $user = $db->users->findOne(array("email" => $_POST["typeEmailX"], "password" => $_POST["typePasswordX"]));
+
     if ($user != null) {
         $_SESSION["user_id"] = $user["_id"];
-        header ('location: index.php');
-        exit();
     } else {
         echo "Erreur de connexion";
     }
-}else {
+}
+
+/* Vérifier si l'utilisateur est connecté. S'il l'est, il le redirige vers la page d'index. Si ce n'est
+pas le cas, il affiche le formulaire de connexion. */
+if (isset($_SESSION["user_id"])) {
+    header ('location: index.php');
+    exit();
+} else {
     echo '
 <body>
     <br />
@@ -45,5 +59,6 @@ if (isset($_POST["typeEmailX"]) && isset($_POST["typePasswordX"])) {
 ';
 }
 ?>
+
 </html>
 <!-- <a href="inscription.php"><button class="btn btn-outline-light btn-lg px-5">Inscription</button></a> -->
