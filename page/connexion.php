@@ -21,8 +21,11 @@ if (isset($_POST["typeEmailX"]) && isset($_POST["typePasswordX"])) {
 /* Vérifier si l'utilisateur est connecté. S'il l'est, il le redirige vers la page d'index. Si ce n'est
 pas le cas, il affiche le formulaire de connexion. */
 if (isset($_SESSION["user_id"])) {
-    header ('location:index.php');
-    exit();
+    ?>
+    <script type="text/javascript">
+        window.location = "index.php";
+    </script>
+    <?php
 } else {
     echo '
 <body>
