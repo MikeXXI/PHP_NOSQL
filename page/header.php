@@ -1,11 +1,15 @@
 <?php
-require 'vendor/autoload.php';
 
 /* Vérifier si la session est déjà démarrée ou non.
 Sinon, il démarrera la session. */
 if(session_status() == PHP_SESSION_NONE){
   session_start ();  
 }
+
+
+require 'vendor/autoload.php';
+
+
 
 // Connexion à la base de données version PROD (docker)
 $client = new MongoDB\Client("mongodb://root:secret@mongodb:27017");
