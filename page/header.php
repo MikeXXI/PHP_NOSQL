@@ -1,13 +1,18 @@
 <?php
 require 'vendor/autoload.php';
 
+/* Vérifier si la session est déjà démarrée ou non.
+Sinon, il démarrera la session. */
 if(session_status() == PHP_SESSION_NONE){
   session_start ();  
 }
 
+// Connexion à la base de données version PROD (docker)
 $client = new MongoDB\Client("mongodb://root:secret@mongodb:27017");
+// Connexion à la base de données version DEV (local)
 // $client = new MongoDB\Client("mongodb://localhost:27017");
 
+/* Il crée une variable appelée `$db` et lui attribue la base de données `tests`. */
 $db=$client->tests;
 ?>
 
@@ -27,4 +32,11 @@ $db=$client->tests;
   <link rel="stylesheet" href="style.css">
 
   <title>Tp NO SQL</title>
+
+  <?php 
+  // Inclure le fichier menu.php qui correspond au menu de notre site.
+  include('menu.php'); 
+  ?>
 </head>
+</br></br></br>
+

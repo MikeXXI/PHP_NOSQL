@@ -1,27 +1,33 @@
-<?php include('header.php'); ?>
-<?php include('menu.php'); ?>
-
-
+<?php 
+// Permet d'inclure le code html ainsi que le code php de header.php ( qui contient le code html et php de la barre de navigation )
+include('header.php'); 
+?>
 
 <body>
 
     <?php
+    /* Ce code est utilisé pour supprimer un restaurant de la liste des favoris, via l'envoi d'un $_POST["restaurant_id"]. 
+    Si celui si est défini on supprime le restaurant qui correspond au restaurant_id et au id utilisateur en cours.
+    Si la requête fonctionne cela affiche que le restaurant a bien était supprimé, sinon il affiche qu'il y a eu une erreur. */
     if (isset($_POST["restaurant_id"])) {
         $delete_resto = $db->favori->deleteOne([
             "user_id" => $_SESSION['user_id'],
             "favori" => $_POST['restaurant_id'],
         ]);
-        echo "<div id='modal_err_resto' class='modal'>
-    <div class='modal-content'>
-        <h4>Suppression</h4>
-        <p>Le restaurant a bien été supprimé de vos favoris</p>
-        </div>
-       </div> ";
+        if($delete_resto){
+            echo "Ce restaurant a bien été supprimé de vos favoris ";
+        }else{
+            echo "Une erreur est survenue. Le restaurant n'a pas été supprimé de vos favoris ";
+        }
     }
     ?>
 
     <?php
+    /* Vérifier si l'utilisateur est connecté. S'il l'est, il affichera le formulaire. Si ce n'est pas
+    le cas, il affichera le message d'erreur. */
     if (isset($_SESSION['user_id'])) {
+        /* Ce code permet de trier les restaurants par nom, identifiant, cuisine, arrondissement ou
+        code postal. */
         if (isset($_POST['selection'])) {
             if ($_POST["selection"] == "nameasc") {
                 $_SESSION["selecttri"] = "nameasc";
@@ -50,6 +56,9 @@
         }
 
     ?>
+        <!-- Le code ci-dessus est un formulaire qui permet à l'utilisateur de sélectionner une valeur
+        dans un menu déroulant. Le formulaire est soumis lorsque l'utilisateur sélectionne une
+        valeur. Le formulaire est soumis à la même page. -->
         <form method="POST" action="" name="formtri">
             <select onchange="formtri.submit()" name="selection" style="position:left; max-width: 150px; max-height: 50px;">
                 <option value="nameasc" <?php if (isset($_SESSION["selecttri"]) && $_SESSION["selecttri"] == "nameasc") {
@@ -90,7 +99,8 @@
             </select>
         </form>
         <div class="restaurant_container">
-            <?php foreach ($liste_restaurant as $restaurant) {
+            <?php /* Ce code est utilisé pour afficher les restaurants de la base de données. */
+            foreach ($liste_restaurant as $restaurant) {
                 echo '
                 <form action="favori.php" method="POST">
                     <div class="restaurant_cards">
@@ -115,7 +125,7 @@
             }
         } else {
             ?>
-
+            <!-- Le code ci-dessous est utilisé pour afficher un messages d'erreur si, l'utilisateur n'est pas connecté. -->
             <body>
                 <br />
                 <section class="gradient-custom" style="width: 100%;">

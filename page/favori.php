@@ -1,10 +1,16 @@
-<?php include('header.php'); ?>
-<?php include('menu.php'); ?>
+<?php 
+// Permet d'inclure le code html ainsi que le code php de header.php ( qui contient le code html et php de la barre de navigation )
+include('header.php'); 
+?>
 
 
 <body>
 
     <?php
+
+    /* Ce code vérifie si le restaurant_id est défini, s'il l'est, il vérifiera si le restaurant est
+    déjà dans les favoris, s'il ne l'est pas, il l'ajoutera aux favoris, s'il l'est, il affichera un
+    message indiquant que le restaurant est déjà dans les favoris. */
     if (isset($_POST["restaurant_id"])) {
         $verif_resto = $db->favori->findOne([
             "user_id" => $_SESSION['user_id'],
@@ -26,6 +32,10 @@
     <br />
 
     <?php
+
+   /* Ce code vérifie si l'utilisateur est connecté, s'il l'est, il affichera les restaurants qu'il a
+   ajouté à ses favoris, s'il ne l'est pas, il affichera un message lui indiquant qu'il doit se
+   connecter pour accéder au site . */
     if (isset($_SESSION['user_id'])) {
 
     ?>
